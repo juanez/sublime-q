@@ -8,7 +8,6 @@ class QOutViewCommand(q_chain.QChainCommand):
 
     # globals for now..
     qoutviewname = "Q_OUTPUT_VIEW"
-    qoutexists = 0
     qoutview = None
     def do(self, edit, input=None):
         input = input.replace('\r', '')
@@ -17,12 +16,10 @@ class QOutViewCommand(q_chain.QChainCommand):
             for v in w.views():
                 # print(v.name())
                 if v.name() == QOutViewCommand.qoutviewname:
-                    QOutViewCommand.qoutexists = 1
                     QOutViewCommand.qoutview = v
-                    # w.focus_view(QOutViewCommand.qoutview) # why no focus love?
-                    # print(w)                    
+      
 
-        if 0 == QOutViewCommand.qoutexists:
+        if None == QOutViewCommand.qoutview:
             QOutViewCommand.qoutview = self.view.window().new_file()
             QOutViewCommand.qoutview.set_name(QOutViewCommand.qoutviewname)
 
