@@ -1,4 +1,0 @@
-[
-    { "keys": ["ctrl+l"], "command": "q_goto_line" },
-    { "keys": ["ctrl+enter"],       "command": "q_chain", "args": {"chain": ["q_select_text", "q_send",         "q_out_view"]}},
-]
