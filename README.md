@@ -1,7 +1,6 @@
 # sublime-q
-Syntax based on https://github.com/kimtang/sublime-q, but signifcant changes made.
-
-QConnections from https://github.com/komsit37/sublime-q. 
+Syntax based on https://github.com/kimtang/sublime-q, but signifcant changes made.<br>
+QConnections from https://github.com/komsit37/sublime-q.<br>
 
 ![Image of screenshot](https://github.com/juanez/sublime-q/blob/master/showcase/sublime-q.anim.gif)
 
