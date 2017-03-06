@@ -1,0 +1,6 @@
+{
+	"connections": [],
+	"default_new_connection": "localhost:5555",
+	"use_completion": "True",
+    "q_ctags_file": "FILE_GOES_HERE"
+}
