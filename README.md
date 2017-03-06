@@ -1,10 +1,16 @@
 # sublime-q
 
-Based it on https://github.com/kimtang/sublime-q but quite heavily reworked.
+Syntax based on https://github.com/kimtang/sublime-q, but signifcant changes made.
+QConnections from https://github.com/komsit37/sublime-q. 
 
+![Image of screenshot](https://github.com/juanez/sublime-q/blob/master/showcase/sublime-q.anim.gif)
+
+
+
+### Features
 This properly identifies functions and variable assignments.
 Will not properly identify projections, or function calls omitting [].
 Enables goto definition, symbol lookup.
+Option to use ctags file for auto-completion/'intellisense' across q files.
 
 
-q_out_view.py should be used with https://github.com/komsit37/sublime-q where it will send q responses to a 'view' rather than an output panel.
