@@ -138,10 +138,8 @@ def navigate_to_symbol(view, symbol, locations):
             flags=sublime.KEEP_OPEN_ON_FOCUS_LOST)
 
 
-# class GotoDefinition(sublime_plugin.WindowCommand):
-# class TestLineCommand(sublime_plugin.TextCommand):
-class QGotoLineCommand(sublime_plugin.WindowCommand):
-    print("TestLineCommand")
+class QGotoDefCommand(sublime_plugin.WindowCommand):
+    print("QGotoDefCommand")
     def run(self, symbol=None):
         v = self.window.active_view()
 

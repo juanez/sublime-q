@@ -22,8 +22,6 @@ class QOutViewCommand(q_chain.QChainCommand):
         if None == QOutViewCommand.qoutview:
             QOutViewCommand.qoutview = self.view.window().new_file()
             QOutViewCommand.qoutview.set_name(QOutViewCommand.qoutviewname)
-
-
         try:
             QOutViewCommand.qoutview.set_syntax_file("Packages/sublime-q/syntax/q_output.tmLanguage")
         except Exception:
@@ -34,10 +32,7 @@ class QOutViewCommand(q_chain.QChainCommand):
         QOutViewCommand.qoutview.insert(edit, QOutViewCommand.qoutview.size(), input)
         QOutViewCommand.qoutview.set_read_only(True)
 
-        return '' #return something so that the chain will continue
+        # scroll to end of view
+        QOutViewCommand.qoutview.show(QOutViewCommand.qoutview.size()-len(input))
 
-# class QHideOutViewCommand(q_chain.QChainCommand):
-#    def do(self, edit, input=None):
-#        self.view.window().run_command("hide_panel", {"panel": "output.q"})
-#        return ''   #return something so q_chain can continue
-    
+        return '' #return something so that the chain will continue
