@@ -29,6 +29,12 @@ class QEvent(sublime_plugin.EventListener):
 
 
 	def on_query_completions(self, view, prefix, locations):
+		if not view.match_selector(locations[0], "source.q"):
+			return []
+		pt = view.sel()[0].begin()
+		symbol = view.substr(view.expand_by_class(pt, sublime.CLASS_WORD_START | sublime.CLASS_WORD_END, "[]{}()<>:"))
+		prefix = symbol #prefix is not working for q namespaces, since "." is a word delimiter in normal mode, but overriden ^
+		print(symbol)
 		words=[]
 
 		# Limit number of views but always include the active view. This
@@ -66,11 +72,12 @@ class QEvent(sublime_plugin.EventListener):
 			matches.append((trigger, contents))
 
 		print(matches)
+		print("PREFIX: " + prefix)
 
-		allsyms = list(sublime.qtags_list_functions) # make a copy. super inefficient i suppose.. lets see how it works out
+		# allsyms = list(sublime.qtags_list_functions) # make a copy. super inefficient i suppose.. lets see how it works out
 		# print(sublime.qtags_list_functions)
 		# for word in view.extract_completions(prefix):
-		for sym in allsyms:
+		for sym in sublime.qtags_list_functions:
 			if prefix in sym[0]:
 				matches.append((sym[0]+'\t(%s)' % sym[1],sym[0]))
 
